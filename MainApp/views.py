@@ -14,14 +14,73 @@ def home(request):
     <h1>"Изучаем django"</h1>
     <strong>Автор</strong>: <i>Иванов И.П.</i>
     <br>
-    <href>About</href>
+    <br>
+    <a href = "http://127.0.0.1:8000/about">About</a>
+    <br>
+    <br>
+    <a href = "http://127.0.0.1:8000/items">Категории товаров</a>
 
     """
     return HttpResponse(text)
 
 def about(request):
-    text = ''
+    text = """
+    <a href = "http://127.0.0.1:8000">Домой</a>
+    <br>
+    <h1>Информация</h1>
+    <br>
+    """
     for k, v in AUTHOR.items():
-        text += f'<i>{k}: {v}</i><br>'
+        text += f'{k}: <b>{v}</b><br>'
     return HttpResponse(text)
+
+lst_items = [
+   {"id": 1, "name": "Кроссовки adidas" ,"quantity":5},
+   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
+   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
+   {"id": 7, "name": "Картофель фри" ,"quantity":0},
+   {"id": 8, "name": "Кепка" ,"quantity":124},
+]
+
+def items(request):
+    text = """
+    <a href = "http://127.0.0.1:8000">Домой</a>
+    <br>
+    <h1>Список товаров</h1><br>
+    """
+    for item in lst_items:
+        text += f"<p><b>{item['id']}</b> <a href = \"http://127.0.0.1:8000/items/item/{item['id']}/\">{item['name']}</a></p>"
+    return HttpResponse(text)
+
+def item_info(request, item_id: int):
+    flag = 0
+    for item in lst_items:
+        if item_id == item['id']:
+            text = f"""
+            <a href = "http://127.0.0.1:8000/items/">Назад к списку товаров</a>
+            <br>
+            <br>
+            <table bordercolor='black' align='center' rules='all'>
+                <tr>
+                    <td><i>Наименование</i>:</td> 
+                    <td>{item['name']}</td>
+                </tr>
+                </tr>
+                    <td><i>Количество</i>:</td>
+                    <td> {item['quantity']}</td>
+                </tr>
+            </table>
+            """
+        else:
+            flag += 1
+
+    if flag == len(lst_items):
+        text = f"""
+        <h2>Товар с id={item_id} не найден</h2>"""
+
+    return HttpResponse(text)
+
+
+
+
 
