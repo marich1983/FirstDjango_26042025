@@ -20,21 +20,12 @@ lst_items = [
 
 def home(request):
     context = {
-        "name": "Иванов Иван Ивынович",
+        "name": "Иванов Иван Иванович",
         "email": "example@mail.ru"
     }
     return render(request, "index.html",context)
 
 def about(request):
-    # text = """
-    # <a href = "/">Домой</a>
-    # <br>
-    # <h1>Информация</h1>
-    # <br>
-    # """
-    # for k, v in AUTHOR.items():
-    #     text += f'{k}: <b>{v}</b><br>'
-    # return HttpResponse(text)
     context = {
         'author': AUTHOR
     }
