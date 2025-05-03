@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import models
 
 AUTHOR = {
     'Имя': 'Иван',
@@ -34,15 +35,15 @@ def about(request):
 def items(request):
     
     context = {
-        'items': lst_items
+        'items': models.Item.objects.all()
     }
     
     return render(request, 'items.html', context)
 
 def item_info(request, item_id: int):
 
-    for item in lst_items:
-        if item_id == item['id']:
+    for item in models.Item.objects.all():
+        if item_id == item.id:
             context = {
                 "item": item
                 }
