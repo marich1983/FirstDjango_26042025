@@ -26,16 +26,19 @@ def home(request):
     return render(request, "index.html",context)
 
 def about(request):
-    text = """
-    <a href = "/">Домой</a>
-    <br>
-    <h1>Информация</h1>
-    <br>
-    """
-    for k, v in AUTHOR.items():
-        text += f'{k}: <b>{v}</b><br>'
-    return HttpResponse(text)
-
+    # text = """
+    # <a href = "/">Домой</a>
+    # <br>
+    # <h1>Информация</h1>
+    # <br>
+    # """
+    # for k, v in AUTHOR.items():
+    #     text += f'{k}: <b>{v}</b><br>'
+    # return HttpResponse(text)
+    context = {
+        'author': AUTHOR
+    }
+    return render(request, 'about.html', context)
 
 def items(request):
     

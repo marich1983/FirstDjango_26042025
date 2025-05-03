@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
-    
+    <title>Document</title>
 </head>
 <body>
     <table>
@@ -14,15 +13,8 @@
             <td><a href='/about'>About</a></td>
         </tr>
     </table>
-    <h1>Приветствую</h1>
-
-    Меня зовут <i>{{ name }}</i>
-    <br>
-    Мой имэйл <i>{{ email }}</i>
-    <br>
-    <br>
-    <b>Это главная страница сайта</b>
-    <br>
-    <a href = "/items">Продукция</a>
+    {% for k, v in author.items %}
+        <p>{{k}}: <b>{{v}} </b></p>
+    {% endfor %}
 </body>
 </html>

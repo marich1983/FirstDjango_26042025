@@ -6,10 +6,21 @@
     <title>Товар</title>
 </head>
 <body>
-    <a href = "/">Домой</a>
+    <table>
+        <tr>
+            <td><a href='/'>Home</a></td>
+            <td><a href='/items'>Items</a></td>
+            <td><a href='/about'>About</a></td>
+            <td><a href = "/items">К списку товаров</a></td>
+        </tr>
+    </table>
+    
     <h1> {{item.name}} </h1>
     <br>
-    <b> Количество {{ item.quantity }} </b>
-
+    {% if item.quantity != 0 %}
+        <b> Количество {{ item.quantity }} </b>
+    {% else %}
+        <b> Товар отсутствует </b>
+    {% endif %}
 </body>
 </html>
