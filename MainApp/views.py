@@ -48,7 +48,7 @@ def item_info(request, item_id: int):
                 }
             return render(request, "item.html", context)
     
-    return HttpResponse(f'{item_id} not found')
+    return render(request, 'errors.html', {'error': f'Товар с id {item_id} не найден'})
 
 
 
