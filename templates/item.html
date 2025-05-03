@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товар</title>
+    <title>Item page</title>
 </head>
 <body>
     <header>
-        
         / <a href='/'>Home</a></td>
         / <a href='/items'>Items</a></td>
         / <a href='/about'>About</a></td>
-        / <a href = "/items">К списку товаров</a>
     </header>
 
     <h1> {{item.name}} </h1>
@@ -21,5 +19,9 @@
     {% else %}
         <b> Товар отсутствует </b>
     {% endif %}
+
+<br><br>
+<hr>
+<a href = "/items">К списку товаров</a>
 </body>
 </html>
