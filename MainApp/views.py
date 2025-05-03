@@ -10,7 +10,11 @@ AUTHOR = {
     }
 
 def home(request):
-    return render(request, "index.html")
+    context = {
+        "name": "Иванов Иван Ивынович",
+        "email": "example@mail.ru"
+    }
+    return render(request, "index.html",context)
 
 def about(request):
     text = """
