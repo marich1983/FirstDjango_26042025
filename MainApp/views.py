@@ -10,22 +10,11 @@ AUTHOR = {
     }
 
 def home(request):
-    text = """
-    <h1>"Изучаем django"</h1>
-    <strong>Автор</strong>: <i>Иванов И.П.</i>
-    <br>
-    <br>
-    <a href = "http://127.0.0.1:8000/about">About</a>
-    <br>
-    <br>
-    <a href = "http://127.0.0.1:8000/items">Категории товаров</a>
-
-    """
-    return HttpResponse(text)
+    return render(request, "index.html")
 
 def about(request):
     text = """
-    <a href = "http://127.0.0.1:8000">Домой</a>
+    <a href = "/">Домой</a>
     <br>
     <h1>Информация</h1>
     <br>
@@ -44,12 +33,12 @@ lst_items = [
 
 def items(request):
     text = """
-    <a href = "http://127.0.0.1:8000">Домой</a>
+    <a href = "/">Домой</a>
     <br>
     <h1>Список товаров</h1><br>
     """
     for item in lst_items:
-        text += f"<p><b>{item['id']}</b> <a href = \"http://127.0.0.1:8000/items/item/{item['id']}/\">{item['name']}</a></p>"
+        text += f"<p><b>{item['id']}</b> <a href = '/items/item/{item['id']}'>{item['name']}</a></p>"
     return HttpResponse(text)
 
 def item_info(request, item_id: int):
@@ -57,7 +46,7 @@ def item_info(request, item_id: int):
     for item in lst_items:
         if item_id == item['id']:
             text = f"""
-            <a href = "http://127.0.0.1:8000/items/">Назад к списку товаров</a>
+            <a href = "/items/">Назад к списку товаров</a>
             <br>
             <br>
             <table bordercolor='black' align='center' rules='all'>
