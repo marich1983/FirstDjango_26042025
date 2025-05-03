@@ -6,9 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    <a href = "/">Домой</a>
     <h2>список</h2>
+    <ol>
     {% for item in items %}
-        <ul><a href='/items/item/{{item.id}}'>{{item.name}} </ul>
+        <li><a href='/items/item/{{ item.id }}'>{{item.name}} </li>
     {%endfor%}
+    </ol>
 </body>
 </html>

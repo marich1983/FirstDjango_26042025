@@ -49,10 +49,12 @@ def item_info(request, item_id: int):
 
     for item in lst_items:
         if item_id == item['id']:
-            context = item
-
-
-    return render(request, "item.html", context)
+            context = {
+                "item": item
+                }
+        return render(request, "item.html", context)
+    
+    return HttpResponse(f'{item_id} not found')
 
 
 
