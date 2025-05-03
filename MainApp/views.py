@@ -52,7 +52,7 @@ def item_info(request, item_id: int):
             context = {
                 "item": item
                 }
-        return render(request, "item.html", context)
+            return render(request, "item.html", context)
     
     return HttpResponse(f'{item_id} not found')
 
