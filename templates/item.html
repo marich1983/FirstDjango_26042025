@@ -12,16 +12,17 @@
         / <a href='/about'>About</a></td>
     </header>
 
-    <h1> {{item.name}} </h1>
-    <br>
-    {% if item.count != 0 %}
-        <b> Количество </b>{{ item.count }} 
-        <br>
-        <b>Бренд: </b>{{ item.brand }}
-    {% else %}
-        <b> Товар отсутствует </b>
-    {% endif %}
-
+    <h1> Наименование: {{item.name}} </h1>
+    
+    <div>
+        <p><b>Количество</b> {{ item.count | default:"Товар отсутствует" }} </p>
+    </div>
+    <div>
+        <p><b>Бренд: </b>{{ item.brand }}</p>
+    </div>
+    <div>
+        <p><b>Описание: </b>{{item.description}}</p>
+    </div>
 <br><br>
 <hr>
 <a href = "/items">К списку товаров</a>
