@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+    
+{% block content  %}
+    <h1>Приветствую</h1>
+
+    Меня зовут <i>{{ name }}</i>
+    <br>
+    Мой имэйл <i>{{ email }}</i>
+    <br>
+    <br>
+    <b>Это главная страница сайта</b>
+    <br>
+
+    
+{% endblock  %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,4 +39,4 @@
     <br>
     <a href = "/items">Продукция</a>
 </body>
-</html>
+</html> {% endcomment %}

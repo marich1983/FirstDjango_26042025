@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+    
+{% block content  %}
+    <h1>Об авторе</h1>
+    {% for k, v in author.items %}
+        <p>{{k}}: <b>{{v}} </b></p>
+{% endfor %}
+{% endblock  %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,4 +25,4 @@
         <p>{{k}}: <b>{{v}} </b></p>
     {% endfor %}
 </body>
-</html>
+</html> {% endcomment %}

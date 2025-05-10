@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+    
+{% block content  %}
+    <h1> Наименование: {{item.name}} </h1>
+        
+    <div>
+        <p><b>Количество</b> {{ item.count | default:"Товар отсутствует" }} </p>
+    </div>
+    <div>
+        <p><b>Бренд: </b>{{ item.brand }}</p>
+    </div>
+    <div>
+        <p><b>Описание: </b>{{item.description}}</p>
+    </div>
+{% endblock  %}
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,4 +44,4 @@
 <hr>
 <a href = "/items">К списку товаров</a>
 </body>
-</html>
+</html> {% endcomment %}
