@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items list</title>
+    {% block title %}
+    
+    {% endblock title %}
     {% block style %}
         {# Это общая css для всех страниц #}
         <link rel="stylesheet" href="style.css">
@@ -59,18 +61,12 @@
     {% endblock %}
 </head>
 <body>
-<header>
-    / <a href=' {% url "home" %}'>Home</a></td>
-    / <a href='{% url "items-list" %}'>Items</a></td>
-    / <a href=' {% url "about" %}'>About</a></td>
-</header>
+{% include "inc-1.html" %}
 <main>
     {#  Содержимое этого блока уникально на каждой странице #}
     {% block content %}
     {% endblock %}
 </main>
-<footer>
-    <a href = " {% url "items-list" %}">К списку товаров</a>
-</footer>
+{% include "inc-2.html" %}
 </body>
 </html>
