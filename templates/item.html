@@ -15,7 +15,9 @@
     <h1> {{item.name}} </h1>
     <br>
     {% if item.count != 0 %}
-        <b> Количество {{ item.count }} </b>
+        <b> Количество </b>{{ item.count }} 
+        <br>
+        <b>Бренд: </b>{{ item.brand }}
     {% else %}
         <b> Товар отсутствует </b>
     {% endif %}

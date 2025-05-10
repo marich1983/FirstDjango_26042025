@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import models
+from django.core.exceptions import ObjectDoesNotExist
 
 AUTHOR = {
     'Имя': 'Иван',
@@ -41,15 +42,17 @@ def items(request):
     return render(request, 'items.html', context)
 
 def item_info(request, item_id: int):
-
-    for item in models.Item.objects.all():
-        if item_id == item.id:
-            context = {
-                "item": item
-                }
-            return render(request, "item.html", context)
+    try:
+        item = models.Item.objects.get(id=item_id)
+    except ObjectDoesNotExist:
+        return render(request, 'errors.html', {'error': f'Товар с id {item_id} не найден'})
+    else:
+        context = {
+            "item": item
+            }
+        return render(request, "item.html", context)
     
-    return render(request, 'errors.html', {'error': f'Товар с id {item_id} не найден'})
+
 
 
 
