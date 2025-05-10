@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-{% block title %}
-    <title>Home page</title>   
-{% endblock title %}
+{% load static %}
+
+{% block title %} Home page {% endblock title %}
     
 {% block content  %}
+    <br>
+    <img width="50px" src="{% static "images/django.svg" %}" alt="my_image">
     <h1>Приветствую</h1>
 
     Меня зовут <i>{{ name }}</i>
@@ -17,29 +19,3 @@
     
 {% endblock  %}
 
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    
-</head>
-<body>
-    <header>
-        / <a href='/'>Home</a></td>
-        / <a href='/items'>Items</a></td>
-        / <a href='/about'>About</a></td>
-    </header>
-    <h1>Приветствую</h1>
-
-    Меня зовут <i>{{ name }}</i>
-    <br>
-    Мой имэйл <i>{{ email }}</i>
-    <br>
-    <br>
-    <b>Это главная страница сайта</b>
-    <br>
-    <a href = "/items">Продукция</a>
-</body>
-</html> {% endcomment %}

@@ -10,14 +10,6 @@ AUTHOR = {
     'телефон': '8-923-600-01-02',
     'email': 'vasya@mail.ru'
     }
-
-lst_items = [
-   {"id": 1, "name": "Кроссовки adidas" ,"quantity":5},
-   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
-   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
-   {"id": 7, "name": "Картофель фри" ,"quantity":0},
-   {"id": 8, "name": "Кепка" ,"quantity":124},
-]
    
 
 def home(request):

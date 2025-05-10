@@ -4,8 +4,7 @@
 {% endblock title %}
     
 {% block content  %}
-    <h1> Наименование: {{item.name}} </h1>
-        
+    <h1> Наименование: {{item.name}} </h1> 
     <div>
         <p><b>Количество</b> {{ item.count | default:"Товар отсутствует" }} </p>
     </div>
@@ -18,33 +17,3 @@
 {% endblock  %}
 
 
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item page</title>
-</head>
-<body>
-    <header>
-        / <a href=' {% url "home" %}'>Home</a></td>
-        / <a href='{% url "items-list" %}'>Items</a></td>
-        / <a href=' {% url "about" %}'>About</a></td>
-    </header>
-
-    <h1> Наименование: {{item.name}} </h1>
-    
-    <div>
-        <p><b>Количество</b> {{ item.count | default:"Товар отсутствует" }} </p>
-    </div>
-    <div>
-        <p><b>Бренд: </b>{{ item.brand }}</p>
-    </div>
-    <div>
-        <p><b>Описание: </b>{{item.description}}</p>
-    </div>
-<br><br>
-<hr>
-<a href = "/items">К списку товаров</a>
-</body>
-</html> {% endcomment %}
