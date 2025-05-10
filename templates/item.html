@@ -14,6 +14,20 @@
     <div>
         <p><b>Описание: </b>{{item.description}}</p>
     </div>
+    <div>
+        <p><b>Цвета: </b>
+            <br>
+            <ul style="list-style-type: square">
+            {% for color in colors %}
+                <li>
+                    {{color.name}} 
+                </li>
+            {% empty %} {# вместо if-else #}
+                <p>Нет доступных цветов</p>
+            {% endfor %}
+            </ul> 
+
+    </div>
 {% endblock  %}
 
 
