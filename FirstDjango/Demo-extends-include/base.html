@@ -1,26 +1,13 @@
-{% extends "base.html" %}
-    
-{% block content  %}
-    <h2>Список товаров</h2>
-    <div class="items">
-    {% for item in items %}
-        <div class="item">
-            <a href='{% url "item-info" item.id %}'>
-                <p class="item_name">{{item.name}}</p>
-                <p>Описание товара</p>
-                <p>{{ item.description }} </p>
-            </a>
-        </div>
-    {%endfor%}
-    </div>
-{% endblock  %}
-
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Items list</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items list</title>
+    {% block style %}
+        {# Это общая css для всех страниц #}
+        <link rel="stylesheet" href="style.css">
+        {# Но каждая страница может содержать доп.уникальные css #}
         <style>
             * {
                 box-sizing: border-box;
@@ -69,28 +56,21 @@
                 margin: 0 auto;
               }
         </style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List items</title>
+    {% endblock %}
 </head>
 <body>
-    <header>
-        / <a href='/'>Home</a></td>
-        / <a href='/items'>Items</a></td>
-        / <a href='/about'>About</a></td>
-    </header>
-    <h2>Список товаров</h2>
-    <div class="items">
-    {% for item in items %}
-        <div class="item">
-            <a href='/item/{{ item.id }}'>
-                <p class="item_name">{{item.name}}</p>
-                <p>Описание товара</p>
-                <p>{{ item.description }} </p>
-            </a>
-        </div>
-    {%endfor%}
-        </div>
+<header>
+    / <a href=' {% url "home" %}'>Home</a></td>
+    / <a href='{% url "items-list" %}'>Items</a></td>
+    / <a href=' {% url "about" %}'>About</a></td>
+</header>
+<main>
+    {#  Содержимое этого блока уникально на каждой странице #}
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <a href = " {% url "items-list" %}">К списку товаров</a>
+</footer>
 </body>
-</html> {% endcomment %}
+</html>
